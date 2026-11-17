@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem Manager</title>
+</head>
+
+<body>
+
+    <h1>Problem Manager</h1>
+
+    <form action="/submit" method="POST">
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Problem title"
+            required
+        >
+
+        <br><br>
+
+        <textarea
+            name="description"
+            placeholder="Describe your problem"
+            required
+        ></textarea>
+
+        <br><br>
+
+        <button type="submit">Submit Problem</button>
+
+    </form>
+
+    <hr>
+
+    <h2>Submitted Problems</h2>
+
+    {% for problem in problems %}
+
+        <h3>{{ problem.title }}</h3>
+
+        <p>{{ problem.description }}</p>
+
+        <hr>
+
+    {% else %}
+
+        <p>No problems submitted yet.</p>
+
+    {% endfor %}
+
+</body>
+</html>
